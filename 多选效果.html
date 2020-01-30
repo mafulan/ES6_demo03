@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>无标题文档</title>
+<style type="text/css">
+body{margin:0;}
+.box{ margin:150px 150px;}
+ul{padding:0; list-style:none;}
+li{
+	width:50px; height:30px; display:inline-block;
+	text-align:center; line-height:30px;
+	cursor:pointer;margin-left:5px;
+}
+li:before{ 
+	display:inline-block; width:10px; height:10px; 
+	line-height:10px; content:""; border:1px #000 solid; 
+	margin-right:2px; transition:all 0.3s linear;
+}	
+li.checked:before{ background-color:#0CF; border:1px #fff solid;}
+li.checked{color:#0CF;}
+</style>
+</head>
+<body>
+<ul class="box">
+    <li class="checked">北京</li>
+    <li>上海</li>
+    <li>重庆</li>
+    <li>广州</li>
+    <li>西安</li>
+</ul>
+<script>
+	var aLi =  document.querySelectorAll("li");
+	var aLi1 = Array.from(aLi);
+	// console.log(aLi1[0]);
+	// console.log(aLi1[1]);
+	var m = aLi[0].className;
+	// console.log(m);
+	for(var i=0;i<aLi.length;i++){
+	
+		aLi[i].onclick =function(){
+				// var s1 = /m$/;
+				// aLi1.includes(s1) ? aLi1 = aLi1.filter(item=>s1!=item) : this.className = s1;
+				if(aLi1.includes(m)){
+					// console.log(1);
+					this.className = "";
+				}else{
+					this.className = m;
+				}
+		}
+	}
+</script>
+</body>
+</html>
